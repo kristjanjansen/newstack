@@ -1,1 +1,3 @@
-<template><h1 class="mb-2 text-5xl">First page</h1></template>
+<template>
+    <h1 class="text-5xl text-blue-700 p-10 bg-gray-200">test</h1>
+</template>
