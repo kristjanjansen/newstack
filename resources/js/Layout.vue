@@ -1,13 +1,10 @@
 <template>
     <main>
-        <header>
+        <div class="p-4">
             <inertia-link href="/">First</inertia-link>
             &nbsp;
             <inertia-link href="/second">Second</inertia-link>
-        </header>
-        <hr />
-        <article>
-            <slot />
-        </article>
+        </div>
+        <slot />
     </main>
 </template>
