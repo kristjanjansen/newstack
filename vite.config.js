@@ -1,5 +1,5 @@
 import vue from "@vitejs/plugin-vue";
-import tailwind from "vite-plugin-tailwind";
+import WindiCSS from "vite-plugin-windicss";
 import liveReload from "vite-plugin-live-reload";
 
 /**
@@ -9,7 +9,7 @@ export default {
     publicDir: "disable",
     plugins: [
         vue(),
-        tailwind(),
+        WindiCSS(),
         liveReload(
             "(app|config|database|public|resources|routes|tests)/**/*.php"
         ),

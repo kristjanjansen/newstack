@@ -2,7 +2,7 @@ import { createApp, h } from "vue";
 import { App, plugin } from "@inertiajs/inertia-vue3";
 import Layout from "./Layout.vue";
 
-import "@tailwindcss";
+import "virtual:windi.css";
 
 const pages = import.meta.glob("./Pages/**/*.vue");
 
