@@ -18,4 +18,11 @@ export default {
         manifest: true,
         outDir: "public/dist",
     },
+    resolve: {
+        alias: {
+            "@inertiajs/inertia-vue3":
+                "@inertiajs/inertia-vue3/dist/index.umd.js",
+            "@inertiajs/inertia": "@inertiajs/inertia/dist/index.umd.js",
+        },
+    },
 };
