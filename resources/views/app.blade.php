@@ -1,16 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-</head>
-
-<body>
-    <h1 class="text-2xl text-blue-700 p-10 bg-gray-100">test</h1>
     @production
     @php
     $manifest = json_decode(file_get_contents(public_path('dist/manifest.json')), true);
@@ -21,6 +14,10 @@
     <script type="module" src="http://localhost:3000/@@vite/client"></script>
     <script type="module" src="http://localhost:3000/resources/js/app.js"></script>
     @endproduction
+</head>
+
+<body>
+    @inertia
 </body>
 
 </html>
