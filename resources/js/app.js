@@ -1,7 +1,8 @@
-import "../css/app.css";
-
 import { createApp, h } from "vue";
 import { App, plugin } from "@inertiajs/inertia-vue3";
+import Layout from "./Layout.vue";
+
+import "@tailwindcss";
 
 const pages = import.meta.glob("./Pages/**/*.vue");
 
@@ -13,7 +14,10 @@ createApp({
             initialPage: JSON.parse(el.dataset.page),
             resolveComponent: (name) => {
                 const importPage = pages[`./Pages/${name}.vue`];
-                return importPage().then((module) => module.default);
+                return importPage().then(({ default: page }) => {
+                    page.layout = Layout;
+                    return page;
+                });
             },
         }),
 })
