@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <h1 class="text-2xl text-blue-700 p-10 bg-gray-100">test</h1>
     @production
     @php
     $manifest = json_decode(file_get_contents(public_path('dist/manifest.json')), true);
