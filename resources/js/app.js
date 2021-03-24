@@ -1,3 +1,5 @@
+import "vite/dynamic-import-polyfill";
+
 import { createApp, h } from "vue";
 import { App, plugin } from "@inertiajs/inertia-vue3";
 import Layout from "./Layout.vue";
