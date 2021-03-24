@@ -7,7 +7,7 @@ import liveReload from "vite-plugin-live-reload";
  */
 export default ({ command }) => ({
     publicDir: "disable",
-    base: command === "serve" ? "" : "/dist/",
+    base: command === "build" ? "/dist/" : "",
     plugins: [
         vue(),
         WindiCSS(),
@@ -21,5 +21,16 @@ export default ({ command }) => ({
         rollupOptions: {
             input: "resources/js/app.js",
         },
+    },
+    resolve: {
+        alias:
+            command === "build"
+                ? {
+                      "@inertiajs/inertia-vue3":
+                          "@inertiajs/inertia-vue3/dist/index.umd.js",
+                      "@inertiajs/inertia":
+                          "@inertiajs/inertia/dist/index.umd.js",
+                  }
+                : {},
     },
 });
