@@ -3,7 +3,7 @@ import "vite/dynamic-import-polyfill";
 import { createApp, h } from "vue";
 import { App, plugin } from "@inertiajs/inertia-vue3";
 
-import "./app.css";
+import "../css/app.css";
 
 const pages = import.meta.glob("./Pages/**/*.vue");
 const layouts = import.meta.globEager("./Layouts/**/*.vue");
