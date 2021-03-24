@@ -4,7 +4,7 @@ import { createApp, h } from "vue";
 import { App, plugin } from "@inertiajs/inertia-vue3";
 import Layout from "./Layout.vue";
 
-import "virtual:windi.css";
+import "./app.css";
 
 const pages = import.meta.glob("./Pages/**/*.vue");
 
