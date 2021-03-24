@@ -1,7 +1,6 @@
 <template>
     <main>
         <div class="p-4">
-            Second layout: &nbsp;
             <inertia-link href="/">First</inertia-link>
             &nbsp;
             <inertia-link href="/second">Second</inertia-link>
