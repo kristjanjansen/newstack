@@ -5,24 +5,31 @@ import { App, plugin } from "@inertiajs/inertia-vue3";
 
 import "../css/app.css";
 
-const pages = import.meta.glob("./Pages/**/*.vue");
-const layouts = import.meta.globEager("./Layouts/**/*.vue");
+const pages = import.meta.glob("./pages/**/*.vue");
+const layouts = import.meta.globEager("./layouts/**/*.vue");
+const components = import.meta.glob("./components/**/*.vue");
 
 const el = document.getElementById("app");
 
-createApp({
+const app = createApp({
     render: () =>
         h(App, {
             initialPage: JSON.parse(el.dataset.page),
             resolveComponent: (name) => {
-                const page = defineAsyncComponent(pages[`./Pages/${name}.vue`]);
+                const page = defineAsyncComponent(pages[`./pages/${name}.vue`]);
                 page.layout =
                     layouts[
-                        `./Layouts/${page.layoutName || "Yellow"}.vue`
+                        `./layouts/${page.layoutName || "Yellow"}.vue`
                     ].default;
                 return page;
             },
         }),
-})
-    .use(plugin)
-    .mount(el);
+});
+
+Object.entries(components).forEach(([path, component]) => {
+    const name = path.match(/\.\/components\/(.*)\.vue$/)[1];
+    app.component(name, defineAsyncComponent(component));
+});
+
+app.use(plugin);
+app.mount(el);
