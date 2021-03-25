@@ -1,7 +1,7 @@
 <script setup></script>
 
 <script>
-export default { layout: "Purple" };
+export default { layoutName: "Purple" };
 </script>
 
 <template>

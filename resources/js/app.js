@@ -20,7 +20,7 @@ createApp({
                 return importPage().then(({ default: page }) => {
                     page.layout =
                         layouts[
-                            `./Layouts/${page.layout || "Yellow"}.vue`
+                            `./Layouts/${page.layoutName || "Yellow"}.vue`
                         ].default;
                     return page;
                 });
