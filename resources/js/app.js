@@ -5,8 +5,6 @@ import { App, plugin } from "@inertiajs/inertia-vue3";
 
 import "../css/app.css";
 
-const pages = import.meta.glob("./pages/**/*.vue");
-const layouts = import.meta.globEager("./layouts/**/*.vue");
 const components = import.meta.glob("./components/**/*.vue");
 
 const el = document.getElementById("app");
@@ -15,19 +13,18 @@ const app = createApp({
     render: () =>
         h(App, {
             initialPage: JSON.parse(el.dataset.page),
-            resolveComponent: (name) => {
-                const page = defineAsyncComponent(pages[`./pages/${name}.vue`]);
-                page.layout =
-                    layouts[
-                        `./layouts/${page.layoutName || "Yellow"}.vue`
-                    ].default;
+            resolveComponent: async (name) => {
+                const page = (await import(`./Pages/${name}.vue`)).default;
+                page.layout = (
+                    await import(`./Layouts/${page.layoutName || "Yellow"}.vue`)
+                ).default;
                 return page;
             },
         }),
 });
 
 Object.entries(components).forEach(([path, component]) => {
-    const name = path.match(/\.\/components\/(.*)\.vue$/)[1];
+    const name = path.split("/").slice(-1)[0].replace(".vue", "");
     app.component(name, defineAsyncComponent(component));
 });
 
