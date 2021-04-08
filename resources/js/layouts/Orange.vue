@@ -8,7 +8,7 @@
                 Second page
             </inertia-link>
             &nbsp;
-            <div class="text-yellow-500">Yellow layout</div>
+            <div class="text-green-500">Green layout</div>
         </div>
         <slot />
     </main>
