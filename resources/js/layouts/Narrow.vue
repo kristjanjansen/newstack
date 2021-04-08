@@ -3,7 +3,7 @@
         <inertia-link href="/">Users</inertia-link>
         <inertia-link href="/about">About</inertia-link>
     </div>
-    <div class="text-center p-4 w-[70ch] mx-auto">
+    <div class="p-4 w-full md:w-[50ch]">
         <slot />
     </div>
 </template>
