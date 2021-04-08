@@ -16,7 +16,7 @@ const app = createApp({
             resolveComponent: async (name) => {
                 const page = (await import(`./pages/${name}.vue`)).default;
                 page.layout = (
-                    await import(`./layouts/${page.layoutName || "Wide"}.vue`)
+                    await import(`./layouts/${page.layoutName || "Main"}.vue`)
                 ).default;
                 return page;
             },
