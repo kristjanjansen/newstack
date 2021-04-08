@@ -14,9 +14,9 @@ const app = createApp({
         h(App, {
             initialPage: JSON.parse(el.dataset.page),
             resolveComponent: async (name) => {
-                const page = (await import(`./Pages/${name}.vue`)).default;
+                const page = (await import(`./pages/${name}.vue`)).default;
                 page.layout = (
-                    await import(`./Layouts/${page.layoutName || "Yellow"}.vue`)
+                    await import(`./layouts/${page.layoutName || "Yellow"}.vue`)
                 ).default;
                 return page;
             },
